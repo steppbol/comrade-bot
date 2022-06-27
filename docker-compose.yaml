@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  comrade-app:
+    image: comrade:latest
+    build:
+      context: .
+    container_name: comrade-app
+    ports:
+      - "8088:8088"
+    environment:
+      - USER_NAME=admin
+      - USER_PASSWORD=admin
+      - BOT_TOKEN=
+      - API_URL=https://api.ciscospark.com/v1
+      - CREATION_PERIOD=7
+      - DELETION_PERIOD=7
+      - NOTIFICATION_PERIOD=14
+      - ZONE_ID=Europe/Minsk
+      - LOCALE_TAG=ru
+      - ATTACHMENT_PATH=app/attachments
+      - WEBHOOK_HOST=
+      - NGROK_ENABLED=true
+      - NGROK_CONFIG=app/ngrok/ngrok.yml
+      - DATABASE_HOST=comrade-db
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=comrade
+      - DATABASE_USERNAME=admin
+      - DATABASE_PASSWORD=1234
+    volumes:
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+    depends_on:
+      - comrade-db
+    restart: always
+
+  comrade-db:
+    image: postgres:latest
+    container_name: comrade-db
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=comrade
+    restart: always

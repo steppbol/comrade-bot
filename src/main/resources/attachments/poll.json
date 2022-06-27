@@ -1,0 +1,65 @@
+{
+  "contentType": "application/vnd.microsoft.card.adaptive",
+  "content": {
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.2",
+    "body": [
+      {
+        "type": "Input.Text",
+        "placeholder": "POLL",
+        "isVisible": false,
+        "value": "POLL",
+        "id": "ATTACHMENT_TYPE",
+        "spacing": "None"
+      },
+      {
+        "type": "TextBlock",
+        "text": "${0}",
+        "wrap": true,
+        "spacing": "None",
+        "fontType": "Default",
+        "weight": "Bolder"
+      },
+      {
+        "type": "Input.ChoiceSet",
+        "choices": [
+          ${1}
+        ],
+        "placeholder": "${2}",
+        "id": "CHOICE_SET",
+        "style": "expanded",
+        "spacing": "None",
+        "isMultiSelect": true
+      },
+      {
+        "type": "ActionSet",
+        "actions": [
+          {
+            "type": "Action.Submit",
+            "title": "${3}",
+            "data": {
+              "action": "SAVE"
+            }
+          },
+          {
+            "type": "Action.Submit",
+            "title": "${4}",
+            "data": {
+              "action": "RESULT"
+            }
+          },
+          {
+            "type": "Action.Submit",
+            "title": "${5}",
+            "data": {
+              "action": "FINISH"
+            }
+          }
+        ],
+        "horizontalAlignment": "Center",
+        "spacing": "None"
+      }
+    ]
+  }
+}

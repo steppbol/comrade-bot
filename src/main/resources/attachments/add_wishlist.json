@@ -1,0 +1,60 @@
+{
+  "contentType": "application/vnd.microsoft.card.adaptive",
+  "content": {
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "body": [
+      {
+        "type": "Input.Text",
+        "placeholder": "WISHLIST_ADD",
+        "isVisible": false,
+        "value": "WISHLIST_ADD",
+        "id": "ATTACHMENT_TYPE",
+        "spacing": "None"
+      },
+      {
+        "type": "Input.Text",
+        "placeholder": "EMAIL",
+        "isVisible": false,
+        "value": "${0}",
+        "id": "EMAIL",
+        "spacing": "None"
+      },
+      {
+        "type": "Input.Text",
+        "placeholder": "GROUP_NAME",
+        "isVisible": false,
+        "value": "${1}",
+        "id": "GROUP_NAME",
+        "spacing": "None"
+      },
+      {
+        "type": "TextBlock",
+        "text": "${2}",
+        "wrap": true,
+        "spacing": "None"
+      },
+      {
+        "type": "Input.Text",
+        "id": "LINK",
+        "isMultiline": true,
+        "placeholder": "${3}"
+      },
+      {
+        "type": "ActionSet",
+        "actions": [
+          {
+            "type": "Action.Submit",
+            "title": "${4}",
+            "data": {
+              "action": "SAVE"
+            }
+          }
+        ],
+        "horizontalAlignment": "Center",
+        "spacing": "None"
+      }
+    ],
+    "version": "1.2"
+  }
+}

@@ -1,0 +1,52 @@
+server:
+  port: ${SERVER_PORT:8988}
+  forward-headers-strategy: framework
+
+spring:
+  security:
+    user:
+      name: ${USER_NAME:root}
+      password: ${USER_PASSWORD:!@AppSample6733}
+  datasource:
+    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:12465}/${DATABASE_NAME:comrade}
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:!@DbSample6733}
+  jpa:
+    open-in-view: false
+    show-sql: ${SHOW_SQL:false}
+  flyway:
+    locations: classpath:/db/migration
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+
+springdoc:
+  swagger-ui:
+    path: ${SWAGGER_PATH:/api/v1/comrade/swagger-ui.html}
+  packagesToScan: com.balashenka.comrade.controller.v1
+
+comrade:
+  cisco:
+    token: ${BOT_TOKEN:}
+    api: ${API_URL:https://api.ciscospark.com/v1}
+  date:
+    creation-period: ${CREATION_PERIOD:7}
+    deletion-period: ${DELETION_PERIOD:7}
+    notification-period: ${NOTIFICATION_PERIOD:14}
+  zone:
+    id: ${ZONE_ID:Europe/Minsk}
+    locale: ${LOCALE_TAG:ru}
+  web:
+    webhook:
+      host: ${WEBHOOK_HOST:}
+  attachment:
+    path: ${ATTACHMENT_PATH:attachments}
+  bot:
+    id: ${BOT_ID:}
+    nickname: ${BOT_NICKNAME:}
+    email: ${BOT_EMAIL:}
+    display-name: ${BOT_DISPLAY_NAME:}
+
+ngrok:
+  enabled: ${NGROK_ENABLED:false}
+  config: ${NGROK_CONFIG:ngrok/ngrok.yml}

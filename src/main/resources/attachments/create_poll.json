@@ -1,0 +1,66 @@
+{
+  "contentType": "application/vnd.microsoft.card.adaptive",
+  "content": {
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.2",
+    "body": [
+      {
+        "type": "Input.Text",
+        "placeholder": "POLL_CREATE",
+        "isVisible": false,
+        "value": "POLL_CREATE",
+        "id": "ATTACHMENT_TYPE",
+        "spacing": "None"
+      },
+      {
+        "type": "TextBlock",
+        "text": "${0}",
+        "wrap": true,
+        "spacing": "None",
+        "fontType": "Default",
+        "weight": "Bolder"
+      },
+      {
+        "type": "TextBlock",
+        "text": "${1}",
+        "wrap": true,
+        "spacing": "None"
+      },
+      {
+        "type": "Input.Text",
+        "placeholder": "${2}",
+        "id": "QUESTION",
+        "isMultiline": true,
+        "spacing": "None"
+      },
+      {
+        "type": "TextBlock",
+        "text": "${3}",
+        "wrap": true,
+        "spacing": "None"
+      },
+      {
+        "type": "Input.Text",
+        "placeholder": "${4}",
+        "id": "ANSWER",
+        "isMultiline": true,
+        "spacing": "None"
+      },
+      {
+        "type": "ActionSet",
+        "actions": [
+          {
+            "type": "Action.Submit",
+            "title": "${5}",
+            "data": {
+              "action": "SAVE"
+            }
+          }
+        ],
+        "horizontalAlignment": "Center",
+        "spacing": "None"
+      }
+    ]
+  }
+}
